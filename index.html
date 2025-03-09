@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jaan lavaerts</title>
+  </head>
+  <body>
+    <div class="mx-auto max-w-2xl px-4 py-16 font-light text-neutral-800 sm:py-24">
+      <header class="mb-10">
+        <span id="typed" class="text-xl font-normal"></span>
+        <p class="mt-1 text-sm text-neutral-500">software engineer</p>
+      </header>
+
+      <main class="space-y-8 sm:space-y-12">
+        <section>
+          <p class="max-w-lg text-sm leading-relaxed text-neutral-600 sm:text-base">
+            i'm a <span id="age"></span> y/o software engineer based in leuven, belgium. i'm passionate about crafting
+            software that is intuitive, smooth and efficient. i'm always exploring new technologies and looking for
+            better ways to build and improve.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-6 text-sm font-normal uppercase tracking-wider text-neutral-400">Selected Work</h2>
+          <ul id="projects" class="space-y-6"></ul>
+        </section>
+
+        <section>
+          <h2 class="mb-6 text-sm font-normal uppercase tracking-wider text-neutral-400">Contact</h2>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="/public/CV.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-500">
+                curriculum vitae
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com/in/jaan-lavaerts/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-neutral-500"
+              >
+                linkedin
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/JaanLavaerts"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-neutral-500"
+              >
+                github
+              </a>
+            </li>
+            <li>
+              <a href="mailto:jaan.lavaerts2002@gmail.com" class="hover:text-neutral-500"
+                >jaan.lavaerts2002@gmail.com</a
+              >
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="pt-8 text-xs text-neutral-400">&copy; <span id="current-year"></span></footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
