@@ -12,9 +12,9 @@ function renderProjects(projects: Project[]) {
 
     let description = project.description;
 
-    project.underline.forEach((word) => {
-      description = description.replace(word, (match) => {
-        return `<span class="bg-zinc-100 underline underline-offset-4">${match}</span>`;
+    project.technologies.forEach((word) => {
+      description = description.replace(word.name, () => {
+        return `<a href="${word.link}" target="_blank" class="bg-zinc-100 underline underline-offset-4">${word.name}</a>`;
       });
     });
 
@@ -53,7 +53,7 @@ function getMyAge() {
 }
 
 new Typed('#typed', {
-  strings: ['jaan lavaerts'],
+  stringsElement: '#typed-string',
   typeSpeed: 50,
   backSpeed: 50,
   backDelay: 5000,

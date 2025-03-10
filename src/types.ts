@@ -3,5 +3,5 @@ export interface Project {
   description: string;
   date: string;
   link: string;
-  underline: string[];
+  technologies: { name: string; link: string }[];
 }
