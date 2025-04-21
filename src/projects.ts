@@ -2,6 +2,19 @@ import { Project } from './types';
 
 export const projects: Project[] = [
   {
+    title: 'sanctum',
+    description:
+      'a lightweight password manager built with go (echo) and htmx. it was built as a way to learn go and htmx by creating something practical, secure, and usable. it avoids the complexity of javascript frameworks by keeping all logic and security on the server, making it well-suited for apps like sanctum, where a minimal frontend is a deliberate advantage rather than a constraint. inspired by this article.',
+    date: '2025',
+    link: 'https://github.com/JaanLavaerts/sanctum',
+    technologies: [
+      { name: 'go', link: 'https://go.dev/' },
+      { name: 'echo', link: 'https://echo.labstack.com/' },
+      { name: 'htmx', link: 'https://htmx.org/' },
+      { name: 'article', link: 'https://quii.dev/HTMX_is_the_Future' },
+    ],
+  },
+  {
     title: 'shootify',
     description:
       'my biggest passion project. basketbal vlaanderen made easy. a user-oriented platform that serves as an alternative to the official website, which i found to be unsatisfactory. leveraging the public api for data retrieval, this project was built with next.js and shadcn. behind the scenes, python is used to sync the data and store it in a postgres database so that more complex queries can be performed. authentication is handled by firebase.',
