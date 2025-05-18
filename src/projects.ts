@@ -33,7 +33,7 @@ export const projects: Project[] = [
     description:
       'explore an easy-to-use dashboard with customizable widgets and a clear overview of fun information. built with svelte and daisyui, this app was my personal project to dive deeper into svelte.',
     date: '2023',
-    link: 'https://hublife.netlify.app/',
+    link: 'https://github.com/JaanLavaerts/HubLife',
     technologies: [
       { name: 'svelte', link: 'https://svelte.dev/' },
       { name: 'daisyui', link: 'https://daisyui.com/' },
