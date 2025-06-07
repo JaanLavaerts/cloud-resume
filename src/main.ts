@@ -44,14 +44,6 @@ function setCurrentYear() {
   }
 }
 
-function getMyAge() {
-  const ageElement = document.getElementById('age');
-  const birthDate = new Date('2002-01-21');
-  const currentDate = new Date();
-  const age = currentDate.getFullYear() - birthDate.getFullYear();
-  ageElement && (ageElement.textContent = age.toString());
-}
-
 new Typed('#typed', {
   stringsElement: '#typed-string',
   typeSpeed: 50,
@@ -63,4 +55,3 @@ new Typed('#typed', {
 
 renderProjects(projects);
 setCurrentYear();
-getMyAge();
