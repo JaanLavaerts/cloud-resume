@@ -33,6 +33,9 @@ resource "azurerm_linux_function_app" "func-resume-jaan" {
   service_plan_id            = azurerm_service_plan.service-plan-jaan.id
   storage_account_name       = azurerm_storage_account.st-resume-jaan.name
   storage_account_access_key = azurerm_storage_account.st-resume-jaan.primary_access_key
+  app_settings = {
+    "COSMOS_CONNECTION_STRING" = azurerm_cosmosdb_account.cosmos-resume-jaan.primary_sql_connection_string
+  }
 
   site_config {}
 }
@@ -74,5 +77,10 @@ output "static_web_app_url" {
 
 output "deployment_token" {
   value     = azurerm_static_web_app.frontend-resume-jaan.api_key
+  sensitive = true
+}
+
+output "cosmos_db_connection_string" {
+  value     = azurerm_cosmosdb_account.cosmos-resume-jaan.primary_sql_connection_string
   sensitive = true
 }
