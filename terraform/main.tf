@@ -35,6 +35,9 @@ resource "azurerm_linux_function_app" "func-resume-jaan" {
   storage_account_access_key = azurerm_storage_account.st-resume-jaan.primary_access_key
   app_settings = {
     "COSMOS_CONNECTION_STRING" = azurerm_cosmosdb_account.cosmos-resume-jaan.primary_sql_connection_string
+
+    // set runtime for CI/CD github actions
+    "FUNCTIONS_WORKER_RUNTIME" = "python"
   }
 
   site_config {}
