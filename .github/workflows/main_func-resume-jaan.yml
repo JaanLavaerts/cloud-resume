@@ -31,21 +31,21 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Cd to functions folder
-        run: cd functions
-
       - name: Create and start virtual environment
+        working-directory: ./functions
         run: |
           python -m venv venv
           source venv/bin/activate
 
       - name: Install dependencies
+        working-directory: ./functions
         run: |
           pip install -r requirements.txt
 
       # Optional: Add step to run tests here
 
       - name: Zip artifact for deployment
+        working-directory: ./functions
         run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
