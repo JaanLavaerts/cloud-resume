@@ -26,4 +26,4 @@ def IncrementVisitorCounter(req: func.HttpRequest) -> func.HttpResponse:
         item = {'id': 'visitor_count', 'count': 1}
         container.create_item(body=item)
 
-    return func.HttpResponse(f"Visitor count incremented. Current count: {item['count']}", status_code=200)
+    return func.HttpResponse(f"Visitor count incremented! Current count: {item['count']}", status_code=200)
