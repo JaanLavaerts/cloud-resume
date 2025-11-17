@@ -33,6 +33,7 @@ resource "azurerm_linux_function_app" "func-resume-jaan" {
   service_plan_id            = azurerm_service_plan.service-plan-jaan.id
   storage_account_name       = azurerm_storage_account.st-resume-jaan.name
   storage_account_access_key = azurerm_storage_account.st-resume-jaan.primary_access_key
+  https_only                 = true
   app_settings = {
     "COSMOS_CONNECTION_STRING" = azurerm_cosmosdb_account.cosmos-resume-jaan.primary_sql_connection_string
     // set runtime for CI/CD github actions
@@ -46,6 +47,7 @@ resource "azurerm_linux_function_app" "func-resume-jaan" {
     application_stack {
       python_version = "3.11"
     }
+    always_on = true
   }
 }
 
