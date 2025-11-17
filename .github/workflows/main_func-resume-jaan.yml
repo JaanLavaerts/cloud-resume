@@ -74,5 +74,5 @@ jobs:
         with:
           app-name: "func-resume-jaan"
           slot-name: "Production"
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          package: "release.zip"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_38A73D6533B04983808BB7B678875E34 }}
