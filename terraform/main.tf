@@ -37,6 +37,9 @@ resource "azurerm_linux_function_app" "func-resume-jaan" {
     "COSMOS_CONNECTION_STRING" = azurerm_cosmosdb_account.cosmos-resume-jaan.primary_sql_connection_string
     // set runtime for CI/CD github actions
     "FUNCTIONS_WORKER_RUNTIME" = "python"
+
+    // enable worker indexing to make python v2 programming model functions work (fuck this setting)
+    "AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"
   }
 
   site_config {
