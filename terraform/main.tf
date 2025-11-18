@@ -49,7 +49,7 @@ resource "azurerm_linux_function_app" "func-resume-jaan" {
     }
     always_on = true
     cors {
-      allowed_origins = [azurerm_static_web_app.frontend-resume-jaan.default_host_name]
+      allowed_origins = ["https://${azurerm_static_web_app.frontend-resume-jaan.default_host_name}"]
     }
   }
 }
