@@ -53,5 +53,20 @@ new Typed('#typed', {
   loop: true,
 });
 
+function fetchVisitorCount() {
+  fetch('https://func-resume-jaan.azurewebsites.net/api/IncrementVisitorCounter')
+    .then((response) => response.json())
+    .then((data) => {
+      const countElement = document.getElementById('visitor-count');
+      if (countElement) {
+        countElement.textContent = "visitors: " + data.visitor_count.toString();
+      }
+    })
+    .catch((error) => {
+      console.error('Error fetching visitor count:', error);
+    });
+}
+
+fetchVisitorCount();
 renderProjects(projects);
 setCurrentYear();

@@ -48,6 +48,9 @@ resource "azurerm_linux_function_app" "func-resume-jaan" {
       python_version = "3.11"
     }
     always_on = true
+    cors {
+      allowed_origins = [azurerm_static_web_app.frontend-resume-jaan.default_host_name]
+    }
   }
 }
 
@@ -84,6 +87,10 @@ resource "azurerm_cosmosdb_sql_container" "visitors-container" {
 # outputs
 output "static_web_app_url" {
   value = azurerm_static_web_app.frontend-resume-jaan.default_host_name
+}
+
+output "function_app_url" {
+  value = azurerm_linux_function_app.func-resume-jaan.default_hostname
 }
 
 output "deployment_token" {
