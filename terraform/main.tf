@@ -1,7 +1,7 @@
 resource "azurerm_resource_group" "jaan-cloud-resume" {
   name     = "jaan-cloud-resume"
   location = "West Europe"
-  tags     = { "Owner" = "Jaan", "DueDate" = "2025-12-31" }
+  tags     = { "Owner" = "Jaan", "DueDate" = "2026-01-31" }
 }
 
 resource "azurerm_static_web_app" "frontend-resume-jaan" {
