@@ -29,7 +29,9 @@ jobs:
         with:
           context: ./frontend
           push: true
-          tags: jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:latest
+          tags: |
+            jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:latest
+            jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:${{ github.sha }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
