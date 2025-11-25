@@ -18,7 +18,7 @@ export const projects: Project[] = [
     title: 'shootify',
     description:
       'my biggest passion project. basketbal vlaanderen made easy. a user-oriented platform that serves as an alternative to the official website, which i found to be unsatisfactory. leveraging the public api for data retrieval, this project was built with next.js and shadcn. behind the scenes, python is used to sync the data and store it in a postgres database so that more complex queries can be performed. authentication is handled by firebase.',
-    date: '2025',
+    date: '2024',
     link: 'https://shootify.be',
     technologies: [
       { name: 'next.js', link: 'https://nextjs.org/' },
