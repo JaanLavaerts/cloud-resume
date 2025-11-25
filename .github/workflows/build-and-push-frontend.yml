@@ -29,14 +29,12 @@ jobs:
         with:
           context: ./frontend
           push: true
-          tags: |
-            jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:latest
-            jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:${{ github.sha }}
+          tags: jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:${{ github.sha }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: jaan-resume-app
           slot-name: production
-          images: jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:latest
+          images: jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:${{ github.sha }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
