@@ -4,10 +4,33 @@ resource "azurerm_resource_group" "jaan-cloud-resume" {
   tags     = { "Owner" = "Jaan", "DueDate" = "2026-01-31" }
 }
 
-resource "azurerm_static_web_app" "frontend-resume-jaan" {
-  name                = "frontend-resume-jaan"
+resource "azurerm_container_registry" "acr-resume-jaan" {
+  name                = "jaanresumecontainerreg"
   resource_group_name = azurerm_resource_group.jaan-cloud-resume.name
   location            = azurerm_resource_group.jaan-cloud-resume.location
+  sku                 = "Basic"
+  admin_enabled       = true
+}
+
+resource "azurerm_linux_web_app" "jaan-resume-app" {
+  name                = "jaan-resume-app"
+  location            = azurerm_resource_group.jaan-cloud-resume.location
+  resource_group_name = azurerm_resource_group.jaan-cloud-resume.name
+  service_plan_id     = azurerm_service_plan.service-plan-jaan.id
+  https_only          = true
+
+  site_config {
+    application_stack {
+      docker_image_name        = "jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:latest"
+      docker_registry_url      = "https://jaanresumecontainerreg.azurecr.io"
+      docker_registry_username = azurerm_container_registry.acr-resume-jaan.admin_username
+      docker_registry_password = azurerm_container_registry.acr-resume-jaan.admin_password
+    }
+  }
+
+  app_settings = {
+    "WEBSITES_ENABLE_APP_SERVICE_STORAGE" = "false"
+  }
 }
 
 resource "azurerm_storage_account" "st-resume-jaan" {
@@ -49,7 +72,7 @@ resource "azurerm_linux_function_app" "func-resume-jaan" {
     }
     always_on = true
     cors {
-      allowed_origins = ["https://${azurerm_static_web_app.frontend-resume-jaan.default_host_name}"]
+      allowed_origins = ["https://${azurerm_linux_web_app.jaan-resume-app.default_hostname}"]
     }
   }
 }
@@ -85,17 +108,12 @@ resource "azurerm_cosmosdb_sql_container" "visitors-container" {
 }
 
 # outputs
-output "static_web_app_url" {
-  value = azurerm_static_web_app.frontend-resume-jaan.default_host_name
+output "app_url" {
+  value = azurerm_linux_web_app.jaan-resume-app.default_hostname
 }
 
 output "function_app_url" {
   value = azurerm_linux_function_app.func-resume-jaan.default_hostname
-}
-
-output "deployment_token" {
-  value     = azurerm_static_web_app.frontend-resume-jaan.api_key
-  sensitive = true
 }
 
 output "cosmos_db_connection_string" {
