@@ -21,7 +21,7 @@ resource "azurerm_linux_web_app" "jaan-resume-app" {
 
   site_config {
     application_stack {
-      docker_image_name        = "jaanresumecontainerreg.azurecr.io/cloud-resume-frontend:latest"
+      docker_image_name        = "cloud-resume-frontend:latest"
       docker_registry_url      = "https://jaanresumecontainerreg.azurecr.io"
       docker_registry_username = azurerm_container_registry.acr-resume-jaan.admin_username
       docker_registry_password = azurerm_container_registry.acr-resume-jaan.admin_password
